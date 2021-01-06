@@ -9,7 +9,7 @@
 `mkdocs serve`
 
 # alternative Native Python setup
-check Python is greater then 3
+check Python is greater than 3
 ```
 $ python -V
 Python 3.8.7
