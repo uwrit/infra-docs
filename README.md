@@ -8,6 +8,21 @@
 
 `mkdocs serve`
 
+# alternative Native Python setup
+check Python is greater then 3
+```
+$ python -V
+Python 3.8.7
+```
+then setup a virtual environment (called venv here) and install mkdocs...
+```
+  $  python -m venv venv
+  $  source ./venv/bin/activate
+  $  pip install --upgrade pip
+  $  pip install mkdocs
+  $  mkdocs serve
+```
+
 # Updating changes to onboard.rit.uw.edu
 
 1. Change files as needed on any branch
