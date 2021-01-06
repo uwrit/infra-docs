@@ -1,0 +1,26 @@
+site_name: Onboard RIT
+
+theme:
+    language: en
+    font:
+        text: Roboto
+        code: Roboto Mono
+    favicon: images/logo.png
+    logo: images/logo.png
+    icon:
+    name: null
+    custom_dir: material
+    palette:
+        primary: blue grey
+        accent: deep orange
+        # scheme: slate
+    features:
+        - tabs
+
+repo_name: Research IT
+repo_url: https://rit.uw.edu
+
+extra:
+    social:
+      - icon: fontawesome/brands/github-alt
+        link: https://github.com/uwrit
