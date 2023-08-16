@@ -24,7 +24,11 @@ Create a `.ssh` folder in your user's home folder, and then store your key.
 
 3. Create a new SSH keypair:
 
+		ssh-keygen -t ed25519 -b 521 -f ~/.ssh/<my_private_sshkey>
+   or:
+
 		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/<my_private_sshkey>
+
 > Note: Ensure that you enter a strong password to protect the keypair and protect that password.
 
 4. Once the key is created, send the contents of the public key text file (my_private_sshkey.pub in the example above) to <a href="mailto:rithelp@uw.edu">rithelp@uw.edu</a> with your name and UW NetID.
@@ -44,24 +48,24 @@ Create a file called `config` in the `.ssh` folder which will save your connecti
 
 2. Edit the `~/.ssh/config` file using an editor and add the following text:
 ```bash
-# remote required in order to access other machines
+# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+IdentityFile ~/.ssh/<my_private_sshkey>
+User <uwnetid>
+
+# remote bastion required in order to access other machines
 host remote 
     HostName remote.rit.uw.edu
-    IdentityFile ~/.ssh/<my_private_sshkey>
-    User <uwnetid>
 
 # ssh proxy example 
 host <example-host>
-	HostName <example-host>.rit.uw.edu
-	ProxyJump remote
-	IdentityFile ~/.ssh/<my_private_sshkey>
-	User <uwnetid>
+    HostName <example-host>.rit.uw.edu
+    ProxyJump remote
 
 # port forward example - mostly used for database machines
 host <db-example>
-	HostName remote.rit.uw.edu
-	User <uwnetid>
-	LocalForward <db-port> <db-example>.rit.uw.edu:<db-port>
+    HostName <db-host>.rit.uw.edu
+    ProxyJump remote
+    LocalForward <db-port> localhost:<db-port>
 ```
 
 > Note: The above "port forward example" forwards local port to the remote desktop port on the internal server db-example.rit.uw.edu.
