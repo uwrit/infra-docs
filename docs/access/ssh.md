@@ -16,7 +16,7 @@ In order to access services within the Research IT network, you must setup an SS
 
 Create a `.ssh` folder in your user's home folder, and then store your key.
 
-1. Open up the **Command Prompt** on Mac OS/Linux or Windows.
+1. Open up the **Terminal** on Linux/Mac OS or **Command Prompt** on Windows.
 
 2. Create an SSH configuration directory:
 
@@ -28,10 +28,9 @@ Create a `.ssh` folder in your user's home folder, and then store your key.
    or:
 
 		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/<my_private_sshkey>
-
 > Note: Ensure that you enter a strong password to protect the keypair and protect that password.
 
-4. Once the key is created, send the contents of the public key text file (my_private_sshkey.pub in the example above) to <a href="mailto:rithelp@uw.edu">rithelp@uw.edu</a> with your name and UW NetID.
+4. Once the key is created, send the contents of the public key text file (my_private_sshkey.pub in the example above) to <a href="mailto:rithelp@uw.edu">rithelp@uw.edu</a> with your name, UW NetID, and systems you request access to.
 
 	**Tip**: Output contents of files to the screen using the `cat` command:
 		
@@ -42,7 +41,7 @@ Create a `.ssh` folder in your user's home folder, and then store your key.
 
 Create a file called `config` in the `.ssh` folder which will save your connections.
 
-1. In the command prompt, run the command
+1. In the command prompt, run
 	
 		touch ~/.ssh/config
 
@@ -65,10 +64,9 @@ host <example-host>
 host <db-example>
     HostName <db-host>.rit.uw.edu
     ProxyJump remote
-    LocalForward <db-port> localhost:<db-port>
+    LocalForward <local-port> localhost:<db-port>
 ```
-
-> Note: The above "port forward example" forwards local port to the remote desktop port on the internal server db-example.rit.uw.edu.
+> Note: The above "port forward example" forwards local-port to the remote db-port on the internal server db-example.rit.uw.edu.
 
 ## Examples
 
@@ -84,10 +82,10 @@ After a successful login, you should be able to use the machine through the comm
 
 ### Port Forwarding
 
-Once logged in to the port forwarding tunnel, your command line window will show that you are logged into `remote`.
+Once logged in to the port forwarding tunnel, your command line window will show that you are logged into `db-example`.
 
-	username@remote $
+	username@db-host $
 
-> Note: The forwarded port will always be connected to via 'localhost' or 127.0.0.1.
+> Note: The forwarded port will always be connected to via 'localhost' or 127.0.0.1. After connecting with SSH, use appropriate DB software and connect to localhost:<local-port> specified in the .ssh/config file above.
 
 You won't be using this command line window any further, but you do need to leave this window open. When you are done working you will return to this window to exit out of the tunnel connection. If you close the command line or "Git Bash" window, it will close your ssh tunnel session.
