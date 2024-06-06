@@ -24,10 +24,7 @@ Create a `.ssh` folder in your user's home folder, and then store your key.
 
 3. Create a new SSH keypair:
 
-		ssh-keygen -t ed25519 -b 521 -f ~/.ssh/<my_private_sshkey>
-   or:
-
-		ssh-keygen -t ecdsa -b 521 -f ~/.ssh/<my_private_sshkey>
+		ssh-keygen -t ed25519 -f ~/.ssh/<my_private_sshkey>
 > Note: Ensure that you enter a strong password to protect the keypair and protect that password.
 
 4. Once the key is created, send the contents of the public key text file (my_private_sshkey.pub in the example above) to <a href="mailto:rithelp@uw.edu">rithelp@uw.edu</a> with your name, UW NetID, and systems you request access to.
