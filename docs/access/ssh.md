@@ -45,8 +45,9 @@ Create a file called `config` in the `.ssh` folder which will save your connecti
 2. Edit the `~/.ssh/config` file using an editor and add the following text:
 ```bash
 # Read more about SSH config files: https://linux.die.net/man/5/ssh_config
-IdentityFile ~/.ssh/<my_private_sshkey>
-User <uwnetid>
+Match Final
+    IdentityFile ~/.ssh/<my_private_sshkey>
+    User <uwnetid>
 
 # remote bastion required in order to access other machines
 host remote 
